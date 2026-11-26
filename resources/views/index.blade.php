@@ -205,44 +205,47 @@
       </section>
 
       <!-- KONTAK SECTION -->
-      <section id="kontak" class="section bg-light">
-        <div class="container">
-          <h2 class="section-title">Contact Me!</h2>
-          <div class="contact-layout">
-            <div class="contact-info">
-              <h3>Mari Berkolaborasi!</h3>
-              <p>shaafya@gmail.com</p>
-              <p>+62 812 3599 9891</p>
-              <p>Surabaya, Jawa Timur</p>
-              <div class="socials">
-                <a href="https://linkedin.com/in/jasmine-shaaffya-614a26263/" target="_blank">LinkedIn</a>
-              </div>
-            </div>
-            
-            <div class="contact-form-box card">
-              <form id="contactForm" method="POST" action="{{ route('contact.store', [], false) }}">
-                @csrf
-                <!-- Pesan Error Dinamis -->
-                <div id="formMessage" class="form-message">
-                @if (session('success'))
-                <p class="success-msg">{{ session('success') }}</p>
-                @endif
-                @if ($errors->any())
-                <p class="error-msg">{{ $errors->first() }}</p>
-                @endif
-                </div>
-                
-                <div class="form-group">
-               <input type="text" id="nama" name="name" value="{{ old('name') }}" placeholder="Masukkan nama">
-              <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="contoh@email.com">
-              <textarea id="pesan" name="message" rows="5" placeholder="Tuliskan pesan Anda...">{{ old('message') }}</textarea>
-              <button type="submit" class="btn-submit">Kirim</button>
-              </form>
-            </div>
-          </div>
+      <!-- KONTAK SECTION -->
+<section id="kontak" class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">Contact Me!</h2>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <h3>Mari Berkolaborasi!</h3>
+        <p>shaafya@gmail.com</p>
+        <p>+62 812 3599 9891</p>
+        <p>Surabaya, Jawa Timur</p>
+        <div class="socials">
+          <a href="https://linkedin.com/in/jasmine-shaaffya-614a26263/" target="_blank">LinkedIn</a>
         </div>
-      </section>
-    </main>
+      </div>
+      
+      <div class="contact-form-box card">
+        <form id="contactForm" method="POST" action="{{ route('contact.store', [], false) }}">
+          @csrf
+          
+          <!-- Pesan Error Dinamis -->
+          <div id="formMessage" class="form-message">
+            @if (session('success'))
+              <p class="success-msg">{{ session('success') }}</p>
+            @endif
+            @if ($errors->any())
+              <p class="error-msg">{{ $errors->first() }}</p>
+            @endif
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="nama" name="name" value="{{ old('name') }}" placeholder="Masukkan nama" required>
+            <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="contoh@email.com" required>
+            <textarea id="pesan" name="message" rows="5" placeholder="Tuliskan pesan Anda..." required>{{ old('message') }}</textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">Kirim</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
     <footer class="footer">
       <p>&copy; 2026 Jasmine Aimy Shaafya. All rights reserved.</p>
