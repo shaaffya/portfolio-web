@@ -27,6 +27,8 @@ Route::get('dashboard', function () {
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
 
-Route::get('/cek-pesan', function () {
-    return \App\Models\ContactMessage::latest()->get();
-});
+Route::get('/admin-pesan-secret', function () {
+    $messages = \App\Models\ContactMessage::latest()->get();
+
+    return view('admin.index', compact('messages'));
+})->middleware('auth.basic');
