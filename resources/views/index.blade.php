@@ -220,7 +220,7 @@
             </div>
             
             <div class="contact-form-box card">
-              <form id="contactForm" method="POST" action="{{ route('contact.store') }}">
+              <form id="contactForm" method="POST" action="{{ route('contact.store', [], false) }}">
                 @csrf
                 <!-- Pesan Error Dinamis -->
                 <div id="formMessage" class="form-message">
