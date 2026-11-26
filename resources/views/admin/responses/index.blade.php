@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Respons Form - Portfolio</title>
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <main class="container">
 <header>
 <h1>Respons Form CTA</h1>
-<form method="POST" action="{{ route('logout') }}">
+<form method="POST" action="{{ route('logout', [], false) }}">
 @csrf
 <button type="submit">Keluar</button>
 </form>

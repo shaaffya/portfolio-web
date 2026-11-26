@@ -9,11 +9,16 @@ Route::get('/', function () {
 })->name('home');
 
 Route::post('/contact', [ContactMessageController::class, 'store'])
-->name('contact.store');
+    ->name('contact.store');
 
-Route::get('/admin/responses', [ContactMessageController::class, 'index'])
-->middleware('auth')
-->name('admin.responses.index');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', function () {
+        return redirect()->route('admin.responses.index');
+    })->name('admin.index');
+
+    Route::get('/admin/responses', [ContactMessageController::class, 'index'])
+        ->name('admin.responses.index');
+});
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
